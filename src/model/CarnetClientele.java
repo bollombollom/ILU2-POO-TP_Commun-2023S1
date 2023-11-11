@@ -34,7 +34,7 @@ public class CarnetClientele {
 	public String toString() {
 		StringBuilder chaine = new StringBuilder();
 		for (int i = 0; i < nbClient; i++) {
-			chaine.append(clients[i]);
+			chaine.append(clients[i] + "\n");
 		}
 		return chaine.toString();
 	}

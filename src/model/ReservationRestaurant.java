@@ -20,7 +20,7 @@ public class ReservationRestaurant extends Reservation {
 		} else {
 			chaine += "deuxième ";
 		}
-		return chaine + "service.";
+		return chaine + "service.\n";
 	}
 
 }

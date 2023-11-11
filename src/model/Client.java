@@ -37,7 +37,7 @@ public class Client {
 		StringBuilder chaine = new StringBuilder();
 		chaine.append("nom=" + nom + ", prenom=" + prenom);
 		chaine.append(", adresseMail=" + adresseMail + ", mdp=" + mdp);
-		chaine.append(" - > " + reservationString());
+		chaine.append(" - > \n" + reservationString());
 		return chaine.toString();
 	}
 

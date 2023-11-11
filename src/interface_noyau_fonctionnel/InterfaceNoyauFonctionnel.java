@@ -1,15 +1,53 @@
 package interface_noyau_fonctionnel;
 
-import java.time.LocalDate;
+import control.ControlReserverTable;
+import control.ControlVisualiserCarnetClientele;
 
 public class InterfaceNoyauFonctionnel {
 
-    public String[] trouverTableDisponible(int jour, int mois, int nombrePersonnes, String time) {
-        return new String[]{"Table 1", "Table 2", "Table 3", "Table 4", "Table 5", "Table 6"};
-    }
+	private ControlReserverTable control;
+	private ControlVisualiserCarnetClientele controlVisualiserCarnetClientele;
+	private int[] propositions;
 
-    public void performReservation(LocalDate date, String time, int nbPersons, int numTable) {
-        System.out.println(String.format("Reservation efféctuée %s %s %d %d", date.toString(), time, nbPersons, numTable));
-    }
+	public InterfaceNoyauFonctionnel(ControlReserverTable control,
+			ControlVisualiserCarnetClientele controlVisualiserCarnetClientele) {
+		this.control = control;
+		this.controlVisualiserCarnetClientele = controlVisualiserCarnetClientele;
+	}
+
+	public String[] trouverTableDisponible(int jour, int mois, int nombrePersonnes, String time) {
+		int numService;
+		if (time.equals("19H30")) {
+			numService = 1;
+		} else {
+			numService = 2;
+		}
+
+		propositions = control.trouverPossibilite(jour, mois, nombrePersonnes, numService);
+		int nbProposition = 0;
+		int[] propositionRetenue = new int[propositions.length - 1];
+		for (int i = 1; i < propositions.length; i++) {
+			if (propositions[i] != 0) {
+				propositionRetenue[nbProposition] = propositions[i];
+				nbProposition++;
+			}
+		}
+		String[] propString;
+		propString = new String[nbProposition];
+		for (int i = 0; i < nbProposition; i++) {
+			propString[i] = "" + propositionRetenue[i];
+		}
+
+		return propString;
+	}
+
+	public int selectionTable(int numIndice) {
+		return propositions[numIndice];
+	}
+
+	public String reserverTable(int numClient, int numTable/* , int[] proposition */) {
+		control.reserver(numClient, numTable, propositions[0]);
+		return controlVisualiserCarnetClientele.visualiserCarnetClientel();
+	}
 
 }

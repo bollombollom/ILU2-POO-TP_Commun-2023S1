@@ -4,11 +4,12 @@
  */
 package dialog;
 
-import java.awt.EventQueue;
 import java.time.LocalDate;
 
 import javax.swing.JOptionPane;
 
+import control.ControlReserverTable;
+import control.ControlVisualiserCarnetClientele;
 import interface_noyau_fonctionnel.InterfaceNoyauFonctionnel;
 import presentation.FrameReservation;
 
@@ -17,13 +18,19 @@ public class DialogReservation {
 	private FrameReservation frameReservation;
 	private InterfaceNoyauFonctionnel inf;
 
+	private int numClient = -1;
 	private LocalDate date;
 	private String time;
 	private int nbPersons;
 	private int numTable = -1;
 
-	public DialogReservation(InterfaceNoyauFonctionnel inf) {
-		this.inf = inf;
+//	public DialogReservation(InterfaceNoyauFonctionnel inf) {
+//		this.inf = inf;
+//	}
+
+	public DialogReservation(ControlReserverTable controlReserverTable,
+			ControlVisualiserCarnetClientele controlVisualiserCarnetClientele) {
+		inf = new InterfaceNoyauFonctionnel(controlReserverTable, controlVisualiserCarnetClientele);
 	}
 
 	public void initDialog() {
@@ -63,10 +70,9 @@ public class DialogReservation {
 	}
 
 	public void handleValidationEvent() {
-		inf.performReservation(date, time, nbPersons, numTable);
-		JOptionPane.showMessageDialog(frameReservation,
-				String.format("Réservation effectuée pour le %s%n à %s pour %d personnes %nà la table %d",
-						date.toString(), time, nbPersons, numTable));
+		// inf.performReservation(date, time, nbPersons, numTable);
+		String mess = inf.reserverTable(numClient, numTable);
+		JOptionPane.showMessageDialog(frameReservation, mess);
 		frameReservation.raz();
 	}
 
@@ -74,11 +80,18 @@ public class DialogReservation {
 		return inf.trouverTableDisponible(date.getDayOfMonth(), date.getMonthValue(), nbPersons, time);
 	}
 
-	public static void main(String[] args) {
-		DialogReservation dialog = new DialogReservation(new InterfaceNoyauFonctionnel());
-		EventQueue.invokeLater(() -> {
-			dialog.initDialog();
-		});
+	public void handleUserConnected(int numClient) {
+		this.numClient = numClient;
+		frameReservation.setTitle("Réservation pour " + numClient);
+		// DialogReservation dialog = new DialogReservation(inf);
+		// EventQueue.invokeLater(this::initDialog);
 	}
+
+//	public static void main(String[] args) {
+//		DialogReservation dialog = new DialogReservation(new InterfaceNoyauFonctionnel());
+//		EventQueue.invokeLater(() -> {
+//			dialog.initDialog();
+//		});
+//	}
 
 }
