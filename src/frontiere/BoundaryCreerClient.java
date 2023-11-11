@@ -12,15 +12,16 @@ public class BoundaryCreerClient {
 		this.controlCreerClient = controlCreerClient;
 	}
 
+	// TODO : remplacer mockup par scanner.next()
 	public void creerClient() {
 		System.out.println("Nom : ");
-		String nom = scanner.next();
+		String nom = Mockup.giveValueIfDebug("nom");
 		System.out.println("Prénom : ");
-		String prenom = scanner.next();
+		String prenom = Mockup.giveValueIfDebug("prenom");
 		System.out.println("Adresse mail : ");
-		String adresseMail = scanner.next();
+		String adresseMail = Mockup.giveValueIfDebug("mail");
 		System.out.println("Mot de Passe : ");
-		String mdp = scanner.next();
+		String mdp = Mockup.giveValueIfDebug("pwd");
 		controlCreerClient.creerClient(nom, prenom, adresseMail, mdp);
 	}
 }

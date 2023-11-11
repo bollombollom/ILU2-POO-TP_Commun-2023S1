@@ -12,11 +12,12 @@ public class BoundaryConnecterClient {
 		this.controlConnecterClient = controlConnecterClient;
 	}
 
+	// TODO: remplacer Mockup par scanner.next()
 	public int connecterClient() {
 		System.out.println("Adresse mail : ");
-		String adresseMail = scanner.next();
+		String adresseMail = Mockup.giveValueIfDebug("mail");
 		System.out.println("Mot de passe : ");
-		String mdp = scanner.next();
+		String mdp = Mockup.giveValueIfDebug("pwd");
 		int numClient = controlConnecterClient.connecterClient(adresseMail, mdp);
 		if (numClient != -1) {
 			System.out.println("Vous êtes connecté");
