@@ -1,22 +1,22 @@
 package presentation;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-
-import dialog.DialogAjoutClient;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
-import javax.swing.JLabel;
-import java.awt.Font;
-import javax.swing.JTextField;
-import javax.swing.JPasswordField;
 import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 import javax.swing.SwingConstants;
-import java.awt.Color;
+import javax.swing.border.EmptyBorder;
+
+import dialog.DialogAjoutClient;
 
 public class PresentationJFrameCreationClient extends JFrame {
 
@@ -58,7 +58,7 @@ public class PresentationJFrameCreationClient extends JFrame {
 		textFieldNom.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		textFieldNom.setColumns(10);
 
-		lblPrenom = new JLabel("Pr\u00E9nom");
+		lblPrenom = new JLabel("Prénom");
 		lblPrenom.setFont(new Font("Tahoma", Font.PLAIN, 18));
 
 		lblEmail = new JLabel("Adresse email:");
@@ -80,6 +80,7 @@ public class PresentationJFrameCreationClient extends JFrame {
 
 		btnCancel = new JButton("Cancel");
 		btnCancel.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				doBtnCancelActionPerformed(e);
 			}
@@ -88,6 +89,7 @@ public class PresentationJFrameCreationClient extends JFrame {
 
 		btnCreate = new JButton("Create");
 		btnCreate.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				doBtnNewButton1actionPerformed(e);
 			}
@@ -100,7 +102,7 @@ public class PresentationJFrameCreationClient extends JFrame {
 		lblMdpConfirmer = new JLabel("Confirmez mot de passe:");
 		lblMdpConfirmer.setFont(new Font("Tahoma", Font.PLAIN, 18));
 
-		lblNewLabel = new JLabel("Pour la cr\u00E9ation de votre compte, veuillez saisir les informations suivantes:");
+		lblNewLabel = new JLabel("Pour la création de votre compte, veuillez saisir les informations suivantes:");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.LEFT);
 		lblNewLabel.setVerticalAlignment(SwingConstants.TOP);
@@ -114,45 +116,51 @@ public class PresentationJFrameCreationClient extends JFrame {
 		lblPasswordErrorInstructions.setForeground(Color.ORANGE);
 		lblPasswordErrorInstructions.setFont(new Font("Tahoma", Font.BOLD, 16));
 		GroupLayout glContentPane = new GroupLayout(contentPane);
-		glContentPane.setHorizontalGroup(glContentPane.createParallelGroup(Alignment.LEADING)
-				.addGroup(Alignment.TRAILING, glContentPane.createSequentialGroup().addGroup(glContentPane
-						.createParallelGroup(Alignment.TRAILING).addGroup(glContentPane.createSequentialGroup()
-								.addContainerGap().addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 509,
-										Short.MAX_VALUE))
-						.addGroup(glContentPane.createSequentialGroup().addContainerGap().addGroup(glContentPane
-								.createParallelGroup(Alignment.LEADING)
-								.addGroup(glContentPane.createSequentialGroup()
-										.addComponent(lblNom, GroupLayout.PREFERRED_SIZE, 45,
-												GroupLayout.PREFERRED_SIZE)
-										.addGap(173)
-										.addComponent(textFieldNom, GroupLayout.DEFAULT_SIZE, 318, Short.MAX_VALUE))
-								.addGroup(glContentPane.createSequentialGroup()
+		glContentPane.setHorizontalGroup(
+				glContentPane.createParallelGroup(Alignment.LEADING).addGroup(Alignment.TRAILING, glContentPane
+						.createSequentialGroup().addGroup(glContentPane
+								.createParallelGroup(Alignment.TRAILING)
+								.addGroup(
+										glContentPane.createSequentialGroup().addContainerGap().addComponent(
+												lblNewLabel, GroupLayout.PREFERRED_SIZE, 509, Short.MAX_VALUE))
+								.addGroup(glContentPane.createSequentialGroup().addContainerGap()
 										.addGroup(glContentPane.createParallelGroup(Alignment.LEADING)
-												.addComponent(lblMdpConfirmer, GroupLayout.PREFERRED_SIZE, 218,
-														GroupLayout.PREFERRED_SIZE)
-												.addComponent(lblMdp, GroupLayout.PREFERRED_SIZE, 125,
-														GroupLayout.PREFERRED_SIZE)
-												.addComponent(lblPrenom, GroupLayout.PREFERRED_SIZE, 84,
-														GroupLayout.PREFERRED_SIZE)
-												.addComponent(lblEmail, GroupLayout.PREFERRED_SIZE, 133,
-														GroupLayout.PREFERRED_SIZE))
-										.addGroup(glContentPane.createParallelGroup(Alignment.LEADING)
-												.addComponent(textFieldEmail, Alignment.TRAILING,
-														GroupLayout.DEFAULT_SIZE, 291, Short.MAX_VALUE)
-												.addComponent(passwordField, Alignment.TRAILING,
-														GroupLayout.DEFAULT_SIZE, 291, Short.MAX_VALUE)
-												.addComponent(passwordFieldConfirmer, GroupLayout.DEFAULT_SIZE, 291,
-														Short.MAX_VALUE)
-												.addComponent(textFieldPrenom, Alignment.TRAILING,
-														GroupLayout.DEFAULT_SIZE, 291, Short.MAX_VALUE)))))
-						.addGroup(glContentPane.createSequentialGroup().addComponent(btnCreate).addGap(17)
-								.addComponent(btnCancel))
-						.addGroup(Alignment.LEADING, glContentPane.createSequentialGroup().addContainerGap()
-								.addGroup(glContentPane.createParallelGroup(Alignment.LEADING)
-										.addComponent(lblPasswordError, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE,
-												509, Short.MAX_VALUE)
-										.addComponent(lblPasswordErrorInstructions, GroupLayout.DEFAULT_SIZE, 509,
-												Short.MAX_VALUE))))
+												.addGroup(glContentPane.createSequentialGroup()
+														.addComponent(lblNom, GroupLayout.PREFERRED_SIZE, 45,
+																GroupLayout.PREFERRED_SIZE)
+														.addGap(173)
+														.addComponent(
+																textFieldNom, GroupLayout.DEFAULT_SIZE, 318,
+																Short.MAX_VALUE))
+												.addGroup(glContentPane.createSequentialGroup().addGroup(glContentPane
+														.createParallelGroup(Alignment.LEADING)
+														.addComponent(lblMdpConfirmer, GroupLayout.PREFERRED_SIZE, 218,
+																GroupLayout.PREFERRED_SIZE)
+														.addComponent(lblMdp, GroupLayout.PREFERRED_SIZE, 125,
+																GroupLayout.PREFERRED_SIZE)
+														.addComponent(lblPrenom, GroupLayout.PREFERRED_SIZE, 84,
+																GroupLayout.PREFERRED_SIZE)
+														.addComponent(lblEmail, GroupLayout.PREFERRED_SIZE, 133,
+																GroupLayout.PREFERRED_SIZE))
+														.addGroup(glContentPane.createParallelGroup(Alignment.LEADING)
+																.addComponent(textFieldEmail, Alignment.TRAILING,
+																		GroupLayout.DEFAULT_SIZE, 291, Short.MAX_VALUE)
+																.addComponent(passwordField, Alignment.TRAILING,
+																		GroupLayout.DEFAULT_SIZE, 291, Short.MAX_VALUE)
+																.addComponent(passwordFieldConfirmer,
+																		GroupLayout.DEFAULT_SIZE, 291, Short.MAX_VALUE)
+																.addComponent(textFieldPrenom, Alignment.TRAILING,
+																		GroupLayout.DEFAULT_SIZE, 291,
+																		Short.MAX_VALUE)))))
+								.addGroup(glContentPane.createSequentialGroup().addComponent(btnCreate).addGap(17)
+										.addComponent(btnCancel))
+								.addGroup(Alignment.LEADING,
+										glContentPane.createSequentialGroup().addContainerGap()
+												.addGroup(glContentPane.createParallelGroup(Alignment.LEADING)
+														.addComponent(lblPasswordError, Alignment.TRAILING,
+																GroupLayout.DEFAULT_SIZE, 509, Short.MAX_VALUE)
+														.addComponent(lblPasswordErrorInstructions,
+																GroupLayout.DEFAULT_SIZE, 509, Short.MAX_VALUE))))
 						.addContainerGap()));
 		glContentPane.setVerticalGroup(glContentPane.createParallelGroup(Alignment.LEADING).addGroup(glContentPane
 				.createSequentialGroup().addContainerGap().addComponent(lblNewLabel).addGap(28)
@@ -214,7 +222,7 @@ public class PresentationJFrameCreationClient extends JFrame {
 	}
 
 	public void setPresentationPasswordError() {
-		lblPasswordError.setText("Vous avez saisi deux mots de passe diff�rents");
+		lblPasswordError.setText("Vous avez saisi deux mots de passe différents");
 		lblPasswordErrorInstructions.setText("Merci de les resaisir");
 		passwordField.setText("");
 		passwordFieldConfirmer.setText("");

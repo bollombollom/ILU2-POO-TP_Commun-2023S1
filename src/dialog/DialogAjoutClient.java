@@ -4,8 +4,8 @@ import java.awt.EventQueue;
 
 import control.ControlCreerClient;
 import model.CarnetClientele;
-import presentation.PresentationJFrameModeAdministrateur;
 import presentation.PresentationJFrameCreationClient;
+import presentation.PresentationJFrameModeAdministrateur;
 
 public class DialogAjoutClient {
 
@@ -15,16 +15,16 @@ public class DialogAjoutClient {
 	private ControlCreerClient controlCreerClient;
 
 	public void initDialog() {
-		// Création de la présentation pour l'ajout client
+		// CrÃ©ation de la prÃ©sentation pour l'ajout client
 		presentationCreationClient = new PresentationJFrameCreationClient();
 		presentationCreationClient.setDialogue(this);
 		presentationCreationClient.setVisible(true);
-		// Création de la présentation pour le mode administrateur
+		// CrÃ©ation de la prÃ©sentation pour le mode administrateur
 		presentationFenetreModeAdministrateur = new PresentationJFrameModeAdministrateur();
 		presentationFenetreModeAdministrateur.setVisible(true);
-		// Création carnetClient
+		// CrÃ©ation carnetClient
 		carnetClientel = new CarnetClientele();
-		// Création controlCreerClient
+		// CrÃ©ation controlCreerClient
 		controlCreerClient = new ControlCreerClient(carnetClientel);
 	}
 
@@ -63,9 +63,10 @@ public class DialogAjoutClient {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		// Création dialogReservation
+		// CrÃ©ation dialogReservation
 		DialogAjoutClient dialogReservation = new DialogAjoutClient();
 		EventQueue.invokeLater(new Runnable() {
+			@Override
 			public void run() {
 				try {
 					dialogReservation.initDialog();

@@ -1,14 +1,14 @@
 package presentation;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
+import java.awt.Font;
 
-import javax.swing.JTextArea;
-import javax.swing.JLabel;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
-import java.awt.Font;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.border.EmptyBorder;
 
 public class PresentationJFrameModeAdministrateur extends JFrame {
 
@@ -21,7 +21,7 @@ public class PresentationJFrameModeAdministrateur extends JFrame {
 	 * Create the frame.
 	 */
 	public PresentationJFrameModeAdministrateur() {
-		setTitle("Fen\u00EAtre administrateur");
+		setTitle("Fenêtre administrateur");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 498, 462);
 		contentPane = new JPanel();
@@ -47,6 +47,6 @@ public class PresentationJFrameModeAdministrateur extends JFrame {
 	}
 
 	public void presentationClientAjoute(String nom, String prenom, String email) {
-		textArea.append("Nom: " + nom + " Pr�nom: " + prenom + "Adresse email: " + email + "\n");
+		textArea.append("Nom: " + nom + " Prénom: " + prenom + "Adresse email: " + email + "\n");
 	}
 }
