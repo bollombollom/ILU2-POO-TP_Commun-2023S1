@@ -16,6 +16,7 @@ public class CentraleReservation<E extends EntiteReservable<F>, F extends Formul
 	}
 
 	public int[] donnerPossibilitees(F formulaire) {
+		// ! cet algorithme pourrait ne pas être celui attendu !
 		int[] possibilites = new int[nbEntites];
 		for (int i = 0, j = 0; i < nbEntites; i++) {
 			if (entites[i].compatible(formulaire) && entites[i].estLibre(formulaire)) {
