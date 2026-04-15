@@ -13,14 +13,14 @@ public class ReservationRestaurant extends Reservation {
 
 	@Override
 	public String toString() {
-		String chaine = super.toString();
-		chaine += "\nTable " + numeroTable + " pour le ";
-		if (numeroService == 1) {
-			chaine += "premier ";
-		} else {
-			chaine += "deuxième ";
-		}
-		return chaine + "service.";
+		return String.format("%s\nTable %d pour le %s service.", super.toString(), numeroTable,
+				numeroService == 1 ? "premier" : "deuxième");
+		// ou par concaténation
+		/*
+		 * String chaine = super.toString(); chaine += "\nTable " + numeroTable +
+		 * " pour le "; if (numeroService == 1) { chaine += "premier "; } else { chaine
+		 * += "deuxième "; } return chaine + "service.";
+		 */
 	}
 
 }
