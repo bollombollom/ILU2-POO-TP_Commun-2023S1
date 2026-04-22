@@ -12,6 +12,7 @@ public class CentraleReservation<E extends EntiteReservable<F>, F extends Formul
 	public int ajouterEntite(E entite) {
 		entites[nbEntites] = entite;
 		nbEntites++;
+		entite.setIdentification(nbEntites); // branchement automatique ?
 		return nbEntites;
 	}
 

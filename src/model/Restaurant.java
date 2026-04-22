@@ -64,7 +64,7 @@ public class Restaurant implements IEtablissement<FormulaireRestaurant> {
 	public void ajouterTable(int nbChaise) {
 		Table table = new Table(nbChaise);
 		int nbEntite = centrale.ajouterEntite(table);
-		table.setIdentification(nbEntite);
+		// table.setIdentification(nbEntite); // le faire dans ajouterEntite ?
 	}
 
 	@Override
